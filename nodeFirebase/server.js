@@ -44,6 +44,15 @@ app.get('/', function (req, res) {
       console.log("Current data: ", doc.data());
   });
 
+var fs = require('fs');
+
+try {  
+    var data = fs.readFileSync('/id.txt', 'utf8');
+    console.log(data);    
+} catch(e) {
+    console.log('Error:', e.stack);
+}
+
 //start server on port: 8080
 var server = app.listen(8080, function () {
 
